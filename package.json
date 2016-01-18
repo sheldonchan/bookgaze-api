@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "amazon-product-api": "git://github.com/sheldonchan/amazon-product-api#master",
+    "express": "4.12.3",
+    "express-session": "1.11.2",
+    "http-status": "0.1.8",
+    "superagent": "1.2.0",
+    "wagner-core": "0.1.0",
+    "body-parser": "1.12.4",
+    "console-stamp": "0.2.0",
+    "dateformat": "1.0.12",
+    "morgan": "1.6.1",
+    "btoa": "1.1.2",
+    "atob": "2.0.0",
+    "cheerio": "0.19.0"
+  },
+  "devDependencies": {
+    "gulp": "3.8.11",
+    "gulp-mocha": "2.0.1",
+    "mocha": "2.2.4"
+  },
+  "scripts": {
+    "test": "mocha test.js",
+    "watch": "gulp watch"
+  }
+}
