@@ -48,17 +48,19 @@ module.exports = function(Config) {
   };
 
   // Find us similar books to the given ASIN identifier
-  var similar = function(asin, debug, callback) {
-    console.log("Finding similar for asin: " + asin);
+  var similar = function(candidate, debug, callback) {
+    console.log("Finding similar for asin: " + candidate.asin);
     client.similarityLookup({
-      itemId: asin,
+      itemId: candidate.asin,
       similarityType: 'Random',
       responseGroup: 'ItemAttributes,Images,EditorialReview,Reviews'
     }, function(err, results) {
       if (err) {
         callback(err, null);
       } else {
-        callback(err, debug ? results : results.map(processBook));
+        var obj = debug ? results : results.map(processBook);
+        obj.unshift(candidate);
+        callback(err, obj);
       }
     });
   };
@@ -69,15 +71,15 @@ module.exports = function(Config) {
       keywords: keywords,
       searchIndex: "Books",
       itemPage: pageIndex,
-      responseGroup: 'ItemAttributes,Images'
+      responseGroup: 'ItemAttributes,Images,EditorialReview,Reviews'
     }, function(err, results) {
       if (err) {
         callback(err, null);
       } else if (debug) {
         callback(err, results);
       } else {
-        var asin = processBook(results[0]).asin;
-        similar(asin, debug, callback);
+        var candidate = processBook(results[0]);
+        similar(candidate, debug, callback);
       }
     });
   };

@@ -15,7 +15,7 @@ var allowCrossDomain = function(req, res, next) {
 var app = express();
 
 // DEVELOPMENT:: Access-Control-Allow-Origin
-// app.use(allowCrossDomain);
+app.use(allowCrossDomain);
 
 app.use(morgan('combined'));
 app.use('/api/v1', require('./api')(wagner));
