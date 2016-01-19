@@ -12,7 +12,13 @@ $ npm install
 
 ## Quick Start
 
-You will need to create a config.json file that contains your AWS credentials and drop the file into the same folder. If you're unfamiliar how to get these keys, see: http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html
+You will need to create a config.json file that contains your AWS credentials and drop the file into the same folder. If you're unfamiliar how to get these keys, see:
+
+http://docs.aws.amazon.com/AWSECommerceService/latest/GSG/GettingStarted.html
+
+for the AWS Tag, and the following link for the ID and key:
+
+http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html
 
 ```json
 {
